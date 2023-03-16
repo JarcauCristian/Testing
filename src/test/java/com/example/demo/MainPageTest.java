@@ -9,6 +9,7 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -19,33 +20,60 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.beust.jcommander.Parameter;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.*;
 
 import javax.net.ssl.SSLSession;
 
 public class MainPageTest {
-    MainPage mainPage = new MainPage("password", "dev", "qwer1234", "headless");
     @Test
     void ensureThatEndpointReturns200() throws Exception {
-        FileHandler handler = new FileHandler("data.log", true);
-        Logger logger = Logger.getLogger("com.example.demo");
+        boolean append = true;
+        boolean checkTimedOut = false;
+        FileHandler handler = new FileHandler("data.log", append); // Making the log file
+        Logger logger = Logger.getLogger("com.example.demo"); // Get the java logger API
         logger.addHandler(handler);
-        HttpClient client = HttpClient.newBuilder().build();
-        HttpRequest request = HttpRequest.newBuilder().header("Content-Type", "application/x-www-form-urlencoded").POST(getParamsUrlEncoded(mainPage.convertToMap())).uri(URI.create("https://retention-csb-test.biomed.ntua.gr/auth/realms/retention/protocol/openid-connect/token")).build();
-        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-        if (response.statusCode() != 200) {
-            logger.warning("Bad Response");
+
+        HttpClient client = HttpClient.newBuilder().build(); // Create the HTTPClient
+        try {
+            HttpRequest request = HttpRequest.newBuilder().GET().timeout(Duration.ofSeconds(10)).uri(URI.create("http://18.193.199.62/?integrated")).build();
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+            if (response.statusCode() != 200) {
+                logger.warning("Bad Response");
+            } else {
+                logger.info("Request Successful!" + "\nRequest body: " + response.body());
+            }
+            assertEquals(200, response.statusCode());
+        } catch (java.net.http.HttpConnectTimeoutException e) {
+            logger.severe("Request Timed Out!");
+            assertTrue(checkTimedOut);
         }
-        assertEquals(200, response.statusCode());
     }
 
-    private HttpRequest.BodyPublisher getParamsUrlEncoded(HashMap<String, String> parameters) {
-        String urlEncoded = parameters.entrySet()
-                .stream()
-                .map(e -> e.getKey() + "=" + URLEncoder.encode(e.getValue(), StandardCharsets.UTF_8))
-                .collect(Collectors.joining("&"));
-        return HttpRequest.BodyPublishers.ofString(urlEncoded);
+    @Test
+    void ensureThatEndpoint2Returns200() throws Exception {
+        boolean append = true;
+        boolean checkTimedOut = false;
+        FileHandler handler = new FileHandler("data.log", append); // Making the log file
+        Logger logger = Logger.getLogger("com.example.demo"); // Get the java logger API
+        logger.addHandler(handler);
+
+        HttpClient client = HttpClient.newBuilder().build(); // Create the HTTPClient
+        try {
+            HttpRequest request = HttpRequest.newBuilder().GET().timeout(Duration.ofSeconds(10)).uri(URI.create("http://147.102.230.182:30007/service.json")).build();
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+            if (response.statusCode() != 200) {
+                logger.warning("Bad Response");
+            }
+            else if(response.statusCode() == 200){
+                logger.info("Request Successful!" + "\nRequest body: " + response.body());
+            }
+            assertEquals(200, response.statusCode());
+        } catch (java.net.http.HttpConnectTimeoutException e){
+            logger.severe("Request Timed Out!");
+            assertTrue(checkTimedOut);
+        }
     }
 
 }

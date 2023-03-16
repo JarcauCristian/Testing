@@ -6,15 +6,147 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2023-03-16T14:58:13.203636Z</date>
-  <millis>1678978693203</millis>
-  <nanos>636000</nanos>
+  <date>2023-03-16T20:09:26.366586300Z</date>
+  <millis>1678997366366</millis>
+  <nanos>586300</nanos>
   <sequence>0</sequence>
   <logger>com.example.demo</logger>
-  <level>WARNING</level>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpoint2Returns200</method>
+  <thread>1</thread>
+  <message>Request Successful!</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-16T20:10:06.118545400Z</date>
+  <millis>1678997406118</millis>
+  <nanos>545400</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpoint2Returns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: {
+  "apiVersion" : "0.0.1-SNAPSHOT",
+  "swaggerVersion" : "1.2",
+  "apis" : [ {
+    "path" : "/datacapture_combo.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture combo jobs"
+  }, {
+    "path" : "/datacapture.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture jobs"
+  }, {
+    "path" : "/datacapture_combo_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture combo jobs"
+  }, {
+    "path" : "/dataproviders.{format}",
+    "description" : "REST Service to get supported data providers"
+  }, {
+    "path" : "/datacapture_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture jobs"
+  }, {
+    "path" : "/test.{format}",
+    "description" : "REST Service to test that the services are running"
+  } ],
+  "basePath" : "/resources"
+}</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-16T20:10:37.626903800Z</date>
+  <millis>1678997437626</millis>
+  <nanos>903800</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpoint2Returns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: {
+  "apiVersion" : "0.0.1-SNAPSHOT",
+  "swaggerVersion" : "1.2",
+  "apis" : [ {
+    "path" : "/datacapture_combo.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture combo jobs"
+  }, {
+    "path" : "/datacapture.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture jobs"
+  }, {
+    "path" : "/datacapture_combo_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture combo jobs"
+  }, {
+    "path" : "/dataproviders.{format}",
+    "description" : "REST Service to get supported data providers"
+  }, {
+    "path" : "/datacapture_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture jobs"
+  }, {
+    "path" : "/test.{format}",
+    "description" : "REST Service to test that the services are running"
+  } ],
+  "basePath" : "/resources"
+}</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-16T20:10:46.707262100Z</date>
+  <millis>1678997446707</millis>
+  <nanos>262100</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpoint2Returns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: {
+  "apiVersion" : "0.0.1-SNAPSHOT",
+  "swaggerVersion" : "1.2",
+  "apis" : [ {
+    "path" : "/datacapture_combo.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture combo jobs"
+  }, {
+    "path" : "/datacapture.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture jobs"
+  }, {
+    "path" : "/datacapture_combo_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture combo jobs"
+  }, {
+    "path" : "/dataproviders.{format}",
+    "description" : "REST Service to get supported data providers"
+  }, {
+    "path" : "/datacapture_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture jobs"
+  }, {
+    "path" : "/test.{format}",
+    "description" : "REST Service to test that the services are running"
+  } ],
+  "basePath" : "/resources"
+}</message>
+</record>
+<record>
+  <date>2023-03-16T20:10:56.837732600Z</date>
+  <millis>1678997456837</millis>
+  <nanos>732600</nanos>
+  <sequence>1</sequence>
+  <logger>com.example.demo</logger>
+  <level>SEVERE</level>
   <class>com.example.demo.MainPageTest</class>
   <method>ensureThatEndpointReturns200</method>
   <thread>1</thread>
-  <message>Bad Response</message>
+  <message>Request Timed Out!</message>
 </record>
 </log>
