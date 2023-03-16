@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-16T14:58:13.203636Z</date>
+  <millis>1678978693203</millis>
+  <nanos>636000</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>WARNING</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointReturns200</method>
+  <thread>1</thread>
+  <message>Bad Response</message>
+</record>
+</log>
