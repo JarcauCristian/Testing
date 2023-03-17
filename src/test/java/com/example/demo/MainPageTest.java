@@ -45,6 +45,7 @@ public class MainPageTest {
                 logger.info("Request Successful!" + "\nRequest body: " + response.body());
             }
             assertEquals(200, response.statusCode());
+            assertNotEquals("", response.body());
         } catch (java.net.http.HttpConnectTimeoutException e) {
             logger.severe("Request Timed Out!");
             assertTrue(checkTimedOut);
@@ -70,6 +71,33 @@ public class MainPageTest {
                 logger.info("Request Successful!" + "\nRequest body: " + response.body());
             }
             assertEquals(200, response.statusCode());
+            assertNotEquals("", response.body());
+        } catch (java.net.http.HttpConnectTimeoutException e){
+            logger.severe("Request Timed Out!");
+            assertTrue(checkTimedOut);
+        }
+    }
+
+    @Test
+    void ensureThatEndpointDataCaptureReturns200() throws Exception {
+        boolean append = true;
+        boolean checkTimedOut = false;
+        FileHandler handler = new FileHandler("data.log", append); // Making the log file
+        Logger logger = Logger.getLogger("com.example.demo"); // Get the java logger API
+        logger.addHandler(handler);
+
+        HttpClient client = HttpClient.newBuilder().build(); // Create the HTTPClient
+        try {
+            HttpRequest request = HttpRequest.newBuilder().GET().timeout(Duration.ofSeconds(10)).uri(URI.create("http://147.102.230.182:30007/ihelp/dataproviders")).build();
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+            if (response.statusCode() == 500) {
+                logger.warning("Internal Server Error");
+            }
+            else if(response.statusCode() == 200){
+                logger.info("Request Successful!" + "\nRequest body: " + response.body());
+            }
+            assertEquals(200, response.statusCode());
+            assertNotEquals("", response.body());
         } catch (java.net.http.HttpConnectTimeoutException e){
             logger.severe("Request Timed Out!");
             assertTrue(checkTimedOut);
