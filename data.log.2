@@ -2,31 +2,63 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2023-03-17T04:48:31.217410700Z</date>
-  <millis>1679028511217</millis>
-  <nanos>410700</nanos>
+  <date>2023-03-17T14:44:23.888578800Z</date>
+  <millis>1679064263888</millis>
+  <nanos>578800</nanos>
   <sequence>2</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointServiceJsonReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: {
+  "apiVersion" : "0.0.1-SNAPSHOT",
+  "swaggerVersion" : "1.2",
+  "apis" : [ {
+    "path" : "/datacapture_combo.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture combo jobs"
+  }, {
+    "path" : "/datacapture.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture jobs"
+  }, {
+    "path" : "/datacapture_combo_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture combo jobs"
+  }, {
+    "path" : "/dataproviders.{format}",
+    "description" : "REST Service to get supported data providers"
+  }, {
+    "path" : "/datacapture_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture jobs"
+  }, {
+    "path" : "/test.{format}",
+    "description" : "REST Service to test that the services are running"
+  } ],
+  "basePath" : "/resources"
+}</message>
+</record>
+<record>
+  <date>2023-03-17T14:44:24.043906600Z</date>
+  <millis>1679064264043</millis>
+  <nanos>906600</nanos>
+  <sequence>3</sequence>
   <logger>com.example.demo</logger>
   <level>INFO</level>
   <class>com.example.demo.MainPageTest</class>
   <method>ensureThatEndpointDataCaptureReturns200</method>
   <thread>1</thread>
   <message>Request Successful!
-Request body: ["HDM","FPG","UNIMAN","MUP","TMU","HEALTHENTIA"]</message>
+Request body: &lt;b&gt;Hello from the test resource!&lt;/b&gt;   </message>
 </record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
 <record>
-  <date>2023-03-17T04:56:11.510018600Z</date>
-  <millis>1679028971510</millis>
-  <nanos>18600</nanos>
-  <sequence>2</sequence>
+  <date>2023-03-17T14:44:24.218227400Z</date>
+  <millis>1679064264218</millis>
+  <nanos>227400</nanos>
+  <sequence>4</sequence>
   <logger>com.example.demo</logger>
   <level>INFO</level>
   <class>com.example.demo.MainPageTest</class>
-  <method>ensureThatEndpointDataCaptureReturns200</method>
+  <method>ensureThatEndpointDataProvidersReturns200</method>
   <thread>1</thread>
   <message>Request Successful!
 Request body: ["HDM","FPG","UNIMAN","MUP","TMU","HEALTHENTIA"]</message>

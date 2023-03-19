@@ -280,3 +280,606 @@ Request body: {
 Request body: ["HDM","FPG","UNIMAN","MUP","TMU","HEALTHENTIA"]</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-17T14:32:10.441281900Z</date>
+  <millis>1679063530441</millis>
+  <nanos>281900</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Patients engagement monthly report status&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;style&gt;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+        }
+    &lt;/style&gt;
+
+    &lt;h1&gt;Patients at risk of dropping off the iHelp trial&lt;/h1&gt;
+
+    &lt;div id="data-table"&gt;
+        &lt;table id="html-data-table"&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Subject Id&lt;/th&gt;
+                &lt;th&gt;Report Month&lt;/th&gt;
+                &lt;th&gt;Criteria for drop off&lt;/th&gt;
+                &lt;th&gt;Broken Criteria Value&lt;/th&gt;
+                &lt;th&gt;Classification&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;    
+    &lt;/div&gt;
+
+    &lt;script type="text/javascript" charset="utf-8"&gt;
+     const queryString = window.location.search;
+     
+     var bserv=window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v4";
+    
+     if (queryString.includes("integrated")) {
+       bserv = window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v2";
+     }
+
+        fetch(bserv)
+            .then(function (response) {
+                return response.json();
+            }).then(function (apiJsonData) {
+                console.log(apiJsonData);
+                renderDataInTheTable(apiJsonData);
+            })
+
+        function renderDataInTheTable(todos) {
+            const mytable = document.getElementById("html-data-table");
+            todos.forEach(todo =&gt; {
+                let newRow = document.createElement("tr");
+                Object.values(todo).forEach((value) =&gt; {
+                    let cell = document.createElement("td");
+                    cell.innerText = value;
+                    newRow.appendChild(cell);
+                })
+                mytable.appendChild(newRow);
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</message>
+</record>
+<record>
+  <date>2023-03-17T14:32:10.730854400Z</date>
+  <millis>1679063530730</millis>
+  <nanos>854400</nanos>
+  <sequence>1</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointServiceJsonReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: {
+  "apiVersion" : "0.0.1-SNAPSHOT",
+  "swaggerVersion" : "1.2",
+  "apis" : [ {
+    "path" : "/datacapture_combo.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture combo jobs"
+  }, {
+    "path" : "/datacapture.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture jobs"
+  }, {
+    "path" : "/datacapture_combo_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture combo jobs"
+  }, {
+    "path" : "/dataproviders.{format}",
+    "description" : "REST Service to get supported data providers"
+  }, {
+    "path" : "/datacapture_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture jobs"
+  }, {
+    "path" : "/test.{format}",
+    "description" : "REST Service to test that the services are running"
+  } ],
+  "basePath" : "/resources"
+}</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-17T14:32:31.203303400Z</date>
+  <millis>1679063551203</millis>
+  <nanos>303400</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Patients engagement monthly report status&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;style&gt;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+        }
+    &lt;/style&gt;
+
+    &lt;h1&gt;Patients at risk of dropping off the iHelp trial&lt;/h1&gt;
+
+    &lt;div id="data-table"&gt;
+        &lt;table id="html-data-table"&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Subject Id&lt;/th&gt;
+                &lt;th&gt;Report Month&lt;/th&gt;
+                &lt;th&gt;Criteria for drop off&lt;/th&gt;
+                &lt;th&gt;Broken Criteria Value&lt;/th&gt;
+                &lt;th&gt;Classification&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;    
+    &lt;/div&gt;
+
+    &lt;script type="text/javascript" charset="utf-8"&gt;
+     const queryString = window.location.search;
+     
+     var bserv=window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v4";
+    
+     if (queryString.includes("integrated")) {
+       bserv = window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v2";
+     }
+
+        fetch(bserv)
+            .then(function (response) {
+                return response.json();
+            }).then(function (apiJsonData) {
+                console.log(apiJsonData);
+                renderDataInTheTable(apiJsonData);
+            })
+
+        function renderDataInTheTable(todos) {
+            const mytable = document.getElementById("html-data-table");
+            todos.forEach(todo =&gt; {
+                let newRow = document.createElement("tr");
+                Object.values(todo).forEach((value) =&gt; {
+                    let cell = document.createElement("td");
+                    cell.innerText = value;
+                    newRow.appendChild(cell);
+                })
+                mytable.appendChild(newRow);
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</message>
+</record>
+<record>
+  <date>2023-03-17T14:32:31.471039500Z</date>
+  <millis>1679063551471</millis>
+  <nanos>39500</nanos>
+  <sequence>1</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointServiceJsonReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: {
+  "apiVersion" : "0.0.1-SNAPSHOT",
+  "swaggerVersion" : "1.2",
+  "apis" : [ {
+    "path" : "/datacapture_combo.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture combo jobs"
+  }, {
+    "path" : "/datacapture.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture jobs"
+  }, {
+    "path" : "/datacapture_combo_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture combo jobs"
+  }, {
+    "path" : "/dataproviders.{format}",
+    "description" : "REST Service to get supported data providers"
+  }, {
+    "path" : "/datacapture_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture jobs"
+  }, {
+    "path" : "/test.{format}",
+    "description" : "REST Service to test that the services are running"
+  } ],
+  "basePath" : "/resources"
+}</message>
+</record>
+<record>
+  <date>2023-03-17T14:32:31.683071500Z</date>
+  <millis>1679063551683</millis>
+  <nanos>71500</nanos>
+  <sequence>2</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointDataCaptureReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: ["HDM","FPG","UNIMAN","MUP","TMU","HEALTHENTIA"]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-17T14:39:03.982968400Z</date>
+  <millis>1679063943982</millis>
+  <nanos>968400</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointDataCaptureTestReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: &lt;b&gt;Hello from the test resource!&lt;/b&gt;   </message>
+</record>
+<record>
+  <date>2023-03-17T14:39:04.187171200Z</date>
+  <millis>1679063944187</millis>
+  <nanos>171200</nanos>
+  <sequence>1</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Patients engagement monthly report status&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;style&gt;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+        }
+    &lt;/style&gt;
+
+    &lt;h1&gt;Patients at risk of dropping off the iHelp trial&lt;/h1&gt;
+
+    &lt;div id="data-table"&gt;
+        &lt;table id="html-data-table"&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Subject Id&lt;/th&gt;
+                &lt;th&gt;Report Month&lt;/th&gt;
+                &lt;th&gt;Criteria for drop off&lt;/th&gt;
+                &lt;th&gt;Broken Criteria Value&lt;/th&gt;
+                &lt;th&gt;Classification&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;    
+    &lt;/div&gt;
+
+    &lt;script type="text/javascript" charset="utf-8"&gt;
+     const queryString = window.location.search;
+     
+     var bserv=window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v4";
+    
+     if (queryString.includes("integrated")) {
+       bserv = window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v2";
+     }
+
+        fetch(bserv)
+            .then(function (response) {
+                return response.json();
+            }).then(function (apiJsonData) {
+                console.log(apiJsonData);
+                renderDataInTheTable(apiJsonData);
+            })
+
+        function renderDataInTheTable(todos) {
+            const mytable = document.getElementById("html-data-table");
+            todos.forEach(todo =&gt; {
+                let newRow = document.createElement("tr");
+                Object.values(todo).forEach((value) =&gt; {
+                    let cell = document.createElement("td");
+                    cell.innerText = value;
+                    newRow.appendChild(cell);
+                })
+                mytable.appendChild(newRow);
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</message>
+</record>
+<record>
+  <date>2023-03-17T14:39:04.330688700Z</date>
+  <millis>1679063944330</millis>
+  <nanos>688700</nanos>
+  <sequence>2</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointServiceJsonReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: {
+  "apiVersion" : "0.0.1-SNAPSHOT",
+  "swaggerVersion" : "1.2",
+  "apis" : [ {
+    "path" : "/datacapture_combo.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture combo jobs"
+  }, {
+    "path" : "/datacapture.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture jobs"
+  }, {
+    "path" : "/datacapture_combo_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture combo jobs"
+  }, {
+    "path" : "/dataproviders.{format}",
+    "description" : "REST Service to get supported data providers"
+  }, {
+    "path" : "/datacapture_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture jobs"
+  }, {
+    "path" : "/test.{format}",
+    "description" : "REST Service to test that the services are running"
+  } ],
+  "basePath" : "/resources"
+}</message>
+</record>
+<record>
+  <date>2023-03-17T14:39:04.483721600Z</date>
+  <millis>1679063944483</millis>
+  <nanos>721600</nanos>
+  <sequence>3</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointDataCaptureReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: ["HDM","FPG","UNIMAN","MUP","TMU","HEALTHENTIA"]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-17T14:44:23.529199800Z</date>
+  <millis>1679064263529</millis>
+  <nanos>199800</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointDataCaptureTestReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: &lt;b&gt;Hello from the test resource!&lt;/b&gt;   </message>
+</record>
+<record>
+  <date>2023-03-17T14:44:23.725696900Z</date>
+  <millis>1679064263725</millis>
+  <nanos>696900</nanos>
+  <sequence>1</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Patients engagement monthly report status&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;style&gt;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+        }
+    &lt;/style&gt;
+
+    &lt;h1&gt;Patients at risk of dropping off the iHelp trial&lt;/h1&gt;
+
+    &lt;div id="data-table"&gt;
+        &lt;table id="html-data-table"&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Subject Id&lt;/th&gt;
+                &lt;th&gt;Report Month&lt;/th&gt;
+                &lt;th&gt;Criteria for drop off&lt;/th&gt;
+                &lt;th&gt;Broken Criteria Value&lt;/th&gt;
+                &lt;th&gt;Classification&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;    
+    &lt;/div&gt;
+
+    &lt;script type="text/javascript" charset="utf-8"&gt;
+     const queryString = window.location.search;
+     
+     var bserv=window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v4";
+    
+     if (queryString.includes("integrated")) {
+       bserv = window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v2";
+     }
+
+        fetch(bserv)
+            .then(function (response) {
+                return response.json();
+            }).then(function (apiJsonData) {
+                console.log(apiJsonData);
+                renderDataInTheTable(apiJsonData);
+            })
+
+        function renderDataInTheTable(todos) {
+            const mytable = document.getElementById("html-data-table");
+            todos.forEach(todo =&gt; {
+                let newRow = document.createElement("tr");
+                Object.values(todo).forEach((value) =&gt; {
+                    let cell = document.createElement("td");
+                    cell.innerText = value;
+                    newRow.appendChild(cell);
+                })
+                mytable.appendChild(newRow);
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</message>
+</record>
+<record>
+  <date>2023-03-17T14:44:23.888578800Z</date>
+  <millis>1679064263888</millis>
+  <nanos>578800</nanos>
+  <sequence>2</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointServiceJsonReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: {
+  "apiVersion" : "0.0.1-SNAPSHOT",
+  "swaggerVersion" : "1.2",
+  "apis" : [ {
+    "path" : "/datacapture_combo.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture combo jobs"
+  }, {
+    "path" : "/datacapture.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture jobs"
+  }, {
+    "path" : "/datacapture_combo_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture combo jobs"
+  }, {
+    "path" : "/dataproviders.{format}",
+    "description" : "REST Service to get supported data providers"
+  }, {
+    "path" : "/datacapture_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture jobs"
+  }, {
+    "path" : "/test.{format}",
+    "description" : "REST Service to test that the services are running"
+  } ],
+  "basePath" : "/resources"
+}</message>
+</record>
+<record>
+  <date>2023-03-17T14:44:24.043906600Z</date>
+  <millis>1679064264043</millis>
+  <nanos>906600</nanos>
+  <sequence>3</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointDataCaptureReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: &lt;b&gt;Hello from the test resource!&lt;/b&gt;   </message>
+</record>
+<record>
+  <date>2023-03-17T14:44:24.218227400Z</date>
+  <millis>1679064264218</millis>
+  <nanos>227400</nanos>
+  <sequence>4</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointDataProvidersReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: ["HDM","FPG","UNIMAN","MUP","TMU","HEALTHENTIA"]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-17T14:44:49.893237700Z</date>
+  <millis>1679064289893</millis>
+  <nanos>237700</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointDataCaptureReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: []</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-17T15:13:04.022211400Z</date>
+  <millis>1679065984022</millis>
+  <nanos>211400</nanos>
+  <sequence>0</sequence>
+  <logger>com.example.demo</logger>
+  <level>WARNING</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointDataCaptureReturns200</method>
+  <thread>1</thread>
+  <message>Internal Server Error</message>
+</record>
+</log>

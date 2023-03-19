@@ -2,71 +2,146 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2023-03-16T20:10:56.837732600Z</date>
-  <millis>1678997456837</millis>
-  <nanos>732600</nanos>
+  <date>2023-03-17T14:44:23.725696900Z</date>
+  <millis>1679064263725</millis>
+  <nanos>696900</nanos>
   <sequence>1</sequence>
   <logger>com.example.demo</logger>
-  <level>SEVERE</level>
+  <level>INFO</level>
   <class>com.example.demo.MainPageTest</class>
   <method>ensureThatEndpointReturns200</method>
   <thread>1</thread>
-  <message>Request Timed Out!</message>
+  <message>Request Successful!
+Request body: &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Patients engagement monthly report status&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;style&gt;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+        }
+    &lt;/style&gt;
+
+    &lt;h1&gt;Patients at risk of dropping off the iHelp trial&lt;/h1&gt;
+
+    &lt;div id="data-table"&gt;
+        &lt;table id="html-data-table"&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Subject Id&lt;/th&gt;
+                &lt;th&gt;Report Month&lt;/th&gt;
+                &lt;th&gt;Criteria for drop off&lt;/th&gt;
+                &lt;th&gt;Broken Criteria Value&lt;/th&gt;
+                &lt;th&gt;Classification&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;    
+    &lt;/div&gt;
+
+    &lt;script type="text/javascript" charset="utf-8"&gt;
+     const queryString = window.location.search;
+     
+     var bserv=window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v4";
+    
+     if (queryString.includes("integrated")) {
+       bserv = window.location.protocol+"//"+window.location.hostname+":24000/ihelp/bounce-mitigation/v2";
+     }
+
+        fetch(bserv)
+            .then(function (response) {
+                return response.json();
+            }).then(function (apiJsonData) {
+                console.log(apiJsonData);
+                renderDataInTheTable(apiJsonData);
+            })
+
+        function renderDataInTheTable(todos) {
+            const mytable = document.getElementById("html-data-table");
+            todos.forEach(todo =&gt; {
+                let newRow = document.createElement("tr");
+                Object.values(todo).forEach((value) =&gt; {
+                    let cell = document.createElement("td");
+                    cell.innerText = value;
+                    newRow.appendChild(cell);
+                })
+                mytable.appendChild(newRow);
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</message>
 </record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
 <record>
-  <date>2023-03-17T04:48:31.046379800Z</date>
-  <millis>1679028511046</millis>
-  <nanos>379800</nanos>
-  <sequence>1</sequence>
-  <logger>com.example.demo</logger>
-  <level>SEVERE</level>
-  <class>com.example.demo.MainPageTest</class>
-  <method>ensureThatEndpointReturns200</method>
-  <thread>1</thread>
-  <message>Request Timed Out!</message>
-</record>
-<record>
-  <date>2023-03-17T04:48:31.217410700Z</date>
-  <millis>1679028511217</millis>
-  <nanos>410700</nanos>
+  <date>2023-03-17T14:44:23.888578800Z</date>
+  <millis>1679064263888</millis>
+  <nanos>578800</nanos>
   <sequence>2</sequence>
+  <logger>com.example.demo</logger>
+  <level>INFO</level>
+  <class>com.example.demo.MainPageTest</class>
+  <method>ensureThatEndpointServiceJsonReturns200</method>
+  <thread>1</thread>
+  <message>Request Successful!
+Request body: {
+  "apiVersion" : "0.0.1-SNAPSHOT",
+  "swaggerVersion" : "1.2",
+  "apis" : [ {
+    "path" : "/datacapture_combo.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture combo jobs"
+  }, {
+    "path" : "/datacapture.{format}",
+    "description" : "REST Service to submit/stop/monitor data capture jobs"
+  }, {
+    "path" : "/datacapture_combo_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture combo jobs"
+  }, {
+    "path" : "/dataproviders.{format}",
+    "description" : "REST Service to get supported data providers"
+  }, {
+    "path" : "/datacapture_schedule.{format}",
+    "description" : "REST Service to submit/stop/monitor scheduled data capture jobs"
+  }, {
+    "path" : "/test.{format}",
+    "description" : "REST Service to test that the services are running"
+  } ],
+  "basePath" : "/resources"
+}</message>
+</record>
+<record>
+  <date>2023-03-17T14:44:24.043906600Z</date>
+  <millis>1679064264043</millis>
+  <nanos>906600</nanos>
+  <sequence>3</sequence>
   <logger>com.example.demo</logger>
   <level>INFO</level>
   <class>com.example.demo.MainPageTest</class>
   <method>ensureThatEndpointDataCaptureReturns200</method>
   <thread>1</thread>
   <message>Request Successful!
-Request body: ["HDM","FPG","UNIMAN","MUP","TMU","HEALTHENTIA"]</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2023-03-17T04:56:11.330985300Z</date>
-  <millis>1679028971330</millis>
-  <nanos>985300</nanos>
-  <sequence>1</sequence>
-  <logger>com.example.demo</logger>
-  <level>SEVERE</level>
-  <class>com.example.demo.MainPageTest</class>
-  <method>ensureThatEndpointReturns200</method>
-  <thread>1</thread>
-  <message>Request Timed Out!</message>
+Request body: &lt;b&gt;Hello from the test resource!&lt;/b&gt;   </message>
 </record>
 <record>
-  <date>2023-03-17T04:56:11.510018600Z</date>
-  <millis>1679028971510</millis>
-  <nanos>18600</nanos>
-  <sequence>2</sequence>
+  <date>2023-03-17T14:44:24.218227400Z</date>
+  <millis>1679064264218</millis>
+  <nanos>227400</nanos>
+  <sequence>4</sequence>
   <logger>com.example.demo</logger>
   <level>INFO</level>
   <class>com.example.demo.MainPageTest</class>
-  <method>ensureThatEndpointDataCaptureReturns200</method>
+  <method>ensureThatEndpointDataProvidersReturns200</method>
   <thread>1</thread>
   <message>Request Successful!
 Request body: ["HDM","FPG","UNIMAN","MUP","TMU","HEALTHENTIA"]</message>

@@ -27,11 +27,13 @@ import org.junit.jupiter.api.*;
 import javax.net.ssl.SSLSession;
 
 public class MainPageTest {
+    String URL = "http://147.102.230.182:30007";
+    Gson gson = new Gson();
     @Test
     void ensureThatEndpointReturns200() throws Exception {
         boolean append = true;
         boolean checkTimedOut = false;
-        FileHandler handler = new FileHandler("data.log", append); // Making the log file
+        FileHandler handler = new FileHandler("./data.log", append); // Making the log file
         Logger logger = Logger.getLogger("com.example.demo"); // Get the java logger API
         logger.addHandler(handler);
 
@@ -53,16 +55,16 @@ public class MainPageTest {
     }
 
     @Test
-    void ensureThatEndpoint2Returns200() throws Exception {
+    void ensureThatEndpointServiceJsonReturns200() throws Exception {
         boolean append = true;
         boolean checkTimedOut = false;
-        FileHandler handler = new FileHandler("data.log", append); // Making the log file
+        FileHandler handler = new FileHandler("./data.log", append); // Making the log file
         Logger logger = Logger.getLogger("com.example.demo"); // Get the java logger API
         logger.addHandler(handler);
 
         HttpClient client = HttpClient.newBuilder().build(); // Create the HTTPClient
         try {
-            HttpRequest request = HttpRequest.newBuilder().GET().timeout(Duration.ofSeconds(10)).uri(URI.create("http://147.102.230.182:30007/service.json")).build();
+            HttpRequest request = HttpRequest.newBuilder().GET().timeout(Duration.ofSeconds(10)).uri(URI.create(URL + "/service.json")).build();
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
             if (response.statusCode() != 200) {
                 logger.warning("Bad Response");
@@ -79,16 +81,16 @@ public class MainPageTest {
     }
 
     @Test
-    void ensureThatEndpointDataCaptureReturns200() throws Exception {
+    void ensureThatEndpointDataProvidersReturns200() throws Exception {
         boolean append = true;
         boolean checkTimedOut = false;
-        FileHandler handler = new FileHandler("data.log", append); // Making the log file
+        FileHandler handler = new FileHandler("./data.log", append); // Making the log file
         Logger logger = Logger.getLogger("com.example.demo"); // Get the java logger API
         logger.addHandler(handler);
 
         HttpClient client = HttpClient.newBuilder().build(); // Create the HTTPClient
         try {
-            HttpRequest request = HttpRequest.newBuilder().GET().timeout(Duration.ofSeconds(10)).uri(URI.create("http://147.102.230.182:30007/ihelp/dataproviders")).build();
+            HttpRequest request = HttpRequest.newBuilder().GET().timeout(Duration.ofSeconds(10)).uri(URI.create(URL + "/ihelp/dataproviders")).build();
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
             if (response.statusCode() == 500) {
                 logger.warning("Internal Server Error");
@@ -103,5 +105,56 @@ public class MainPageTest {
             assertTrue(checkTimedOut);
         }
     }
+    @Test
+    void ensureThatEndpointDataCaptureTestReturns200() throws Exception {
+        boolean append = true;
+        boolean checkTimedOut = false;
+        FileHandler handler = new FileHandler("./data.log", append); // Making the log file
+        Logger logger = Logger.getLogger("com.example.demo"); // Get the java logger API
+        logger.addHandler(handler);
 
+        HttpClient client = HttpClient.newBuilder().build(); // Create the HTTPClient
+        try {
+            HttpRequest request = HttpRequest.newBuilder().GET().timeout(Duration.ofSeconds(10)).uri(URI.create(URL + "/ihelp/datacapture/test")).build();
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+            if (response.statusCode() == 500) {
+                logger.warning("Internal Server Error");
+            }
+            else if(response.statusCode() == 200){
+                logger.info("Request Successful!" + "\nRequest body: " + response.body());
+            }
+            assertEquals(200, response.statusCode());
+            assertEquals("<b>Hello from the test resource!</b>", response.body().strip());
+        } catch (java.net.http.HttpConnectTimeoutException e){
+            logger.severe("Request Timed Out!");
+            assertTrue(checkTimedOut);
+        }
+    }
+
+    @Test
+    void ensureThatEndpointDataCaptureReturns200() throws Exception {
+        MainPage mainPage = new MainPage("1", "1", "1", "17.03.2023", "17.03.2023", "Ready", "dd.mm.yyyy", "", 0);
+        String json = gson.toJson(mainPage);
+        boolean append = true;
+        boolean checkTimedOut = false;
+        FileHandler handler = new FileHandler("./data.log", append); // Making the log file
+        Logger logger = Logger.getLogger("com.example.demo"); // Get the java logger API
+        logger.addHandler(handler);
+
+        HttpClient client = HttpClient.newBuilder().build(); // Create the HTTPClient
+        try {
+            HttpRequest request = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.ofString(json)).timeout(Duration.ofSeconds(10)).uri(URI.create(URL + "/ihelp/datacapture")).build();
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+            if (response.statusCode() == 500) {
+                logger.warning("Internal Server Error");
+            }
+            else if(response.statusCode() == 200){
+                logger.info("Request Successful!" + "\nRequest body: " + response.body());
+            }
+            assertEquals(200, response.statusCode());
+        } catch (java.net.http.HttpConnectTimeoutException e){
+            logger.severe("Request Timed Out!");
+            assertTrue(checkTimedOut);
+        }
+    }
 }
